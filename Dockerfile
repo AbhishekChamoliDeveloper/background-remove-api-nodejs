@@ -13,7 +13,7 @@ RUN npm install
 # Install Python and required Python libraries
 RUN apt-get update && apt-get install -y python3
 COPY requirements.txt .  
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
 # Bundle app source

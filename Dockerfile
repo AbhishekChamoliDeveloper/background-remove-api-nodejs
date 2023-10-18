@@ -14,7 +14,7 @@ RUN npm install
 RUN apt-get update && apt-get install -y python python-pip
 
 # You need to add the Python library installation to a single RUN command
-RUN pip install numpy pandas matplotlib rembg Pillow
+RUN pip install numpy pandas matplotlib rembg[gpu,cli] Pillow
 
 # Bundle app source
 COPY . .

@@ -10,11 +10,8 @@ COPY package*.json ./
 # Install Node.js dependencies
 RUN npm install
 
-# Install Python and required Python libraries using 'python' and 'pip'
-RUN apt-get update && apt-get install -y python python-pip
-
-# You need to add the Python library installation to a single RUN command
-RUN pip install numpy pandas matplotlib rembg[gpu,cli] Pillow
+# Install Python 3 and required Python libraries using a single 'RUN' command
+RUN apt-get update && apt-get install -y python3 python3-pip && pip3 install numpy pandas matplotlib rembg Pillow
 
 # Bundle app source
 COPY . .

@@ -10,8 +10,15 @@ COPY package*.json ./
 # Install Node.js dependencies
 RUN npm install
 
-# Install Python 3 and required Python libraries using a single 'RUN' command
-RUN apt-get update && apt-get install -y python3 python3-pip && pip3 install numpy pandas matplotlib rembg Pillow
+# Install Python 3
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# Install required Python libraries separately
+RUN pip3 install numpy
+RUN pip3 install pandas
+RUN pip3 install matplotlib
+RUN pip3 install rembg
+RUN pip3 install Pillow
 
 # Bundle app source
 COPY . .
